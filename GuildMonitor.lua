@@ -49,6 +49,7 @@ local ipairs = ipairs
 local strmatch = string.match
 --Initialize function frames
 local f = CreateFrame("Frame");
+local MyFilterAddon = CreateFrame("Frame");
 
 -- auto inviter. not finished, as missing either passleadoncommand thing, or atleast auto-pass after accept invitation
 REPLYINVITER_ENABLED = true -- Hopefully this will be overwritten with the saved value when ADDON_LOADED fires
@@ -120,10 +121,10 @@ end
 f:SetScript("OnUpdate",f.onUpdate)
 
 function MyFilterAddon:PLAYER_LOGIN()
-  ChatFrame_AddMessageEventFilter("CHAT_MSG_WHISPER", GuildChatFilter)
+  ChatFrame_AddMessageEventFilter("CHAT_MSG_GUILD", GuildChatFilter)
   ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY", Partyfilter)
 print("Guild chat is hooked.");
-  ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY", RaidChatFilter)
+  ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID", RaidChatFilter)
 print("Raid chat is hooked.");
 print("GuildMonitor v0.1-alpha loaded. type !help for list of commands.");
 end
