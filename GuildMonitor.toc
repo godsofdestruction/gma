@@ -1,0 +1,6 @@
+## Interface: 30300
+## Title: GuildMonitor
+## Author: Oblivia
+## Version: v0.1
+## SavedVariables: InviteOMaticOptions
+GuildMonitor.lua
